@@ -37,12 +37,11 @@ namespace Task3.Controllers {
             return NotFound("no studitos");
         }
 
-        [HttpPost]
-        public IActionResult CreateStudent(Student student) {
-            student.IndexNumber = $"s{new Random().Next(1, 20000)}";
-            return Ok(student);
-        }
-        /*
+//         [HttpPost]
+//         public IActionResult CreateStudent(Student student) {
+//             student.IndexNumber = $"s{new Random().Next(1, 20000)}";
+//             return Ok(student);
+//         }
 
         [HttpPut("{id}")]
         public IActionResult PutStudent(int id) {
@@ -51,7 +50,7 @@ namespace Task3.Controllers {
             student.IdStudent = id;
             return Ok("Student Updated!");
         }
-
+/*
         [HttpDelete("{id}")]
         public IActionResult DeleteStudent(int id) {
             //put is used to update
