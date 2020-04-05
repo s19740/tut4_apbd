@@ -11,7 +11,7 @@ using Task3.DAL;
 
 namespace Task3.Controllers {
 
-    [ApiController]
+     [ApiController]
     [Route("api/students")]
     public class StudentsController : ControllerBase {
 
@@ -23,19 +23,24 @@ namespace Task3.Controllers {
         }
 
         [HttpGet]
-        public IActionResult GetStudentsOrder(string orderBy){
+        public IActionResult GetStudents(){
             return Ok(_dbService.GetStudents());
         }
 
         [HttpGet("{id}")]
-        public IActionResult GetStudent(int id) {
-            if (id == 1){
-                return Ok("Kowalski");
-            }else if (id == 2){
-                return Ok("Malewski");
-            }
-            return NotFound("no studitos");
+        public IActionResult GetStudent(string id) {
+            return Ok(_dbService.GetSemesterEntries(id));
         }
+
+//         [HttpGet("{id}")]
+//         public IActionResult GetStudent(int id) {
+//             if (id == 1){
+//                 return Ok("Kowalski");
+//             }else if (id == 2){
+//                 return Ok("Malewski");
+//             }
+//             return NotFound("no studitos");
+//         }
 
 //         [HttpPost]
 //         public IActionResult CreateStudent(Student student) {
