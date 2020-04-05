@@ -19,7 +19,7 @@ namespace Task3.DAL {
         }
         public IEnumerable<Student> GetStudents() {
             var students = new List<Student>();
-            using(sqlConnection){//connection string, you have to find yours
+            using(sqlConnection){
                 using(var command = new SqlCommand()){
                     command.Connection = sqlConnection;
                     command.CommandText = "select s.FirstName, s.LastName, s.BirthDate, st.Name as Studies,e.Semester from Student s join Enrollment e on e.IdEnrollment = s.IdEnrollment join Studies st on st.IdStudy = e.IdStudy";
